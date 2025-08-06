@@ -3,8 +3,8 @@ import type { Site, Page, Links, Socials } from "@types"
 // Global
 export const SITE: Site = {
   TITLE: "NoxlyDev",
-  DESCRIPTION: "Welcome to Astro Sphere, a portfolio and blog for designers and developers.",
-  AUTHOR: "Mark Horn",
+  DESCRIPTION: "Welcome to NoxlyDev Studios, a game dev and web dev for designers and developers.",
+  AUTHOR: "KilluaOWN",
 }
 
 // Work Page
