@@ -1,4 +1,6 @@
 ---
+// src/components/Head.astro atau bagian <head> dalam layout
+
 import { ViewTransitions } from "astro:transitions"
 
 interface Props {
@@ -7,47 +9,93 @@ interface Props {
   image?: string
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-
 const { title, description, image = "/open-graph.jpg" } = Astro.props
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
+<!-- Preload Fonts -->
 <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin>
 
-<!-- Canonical URL -->
+<!-- Canonical -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
+<!-- Title & Description -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
-<!-- Open Graph / Facebook -->
+<!-- Extensive Keywords for SEO -->
+<meta name="keywords" content="
+  game developer, 
+  game dev indonesia, 
+  godot engine, 
+  unity developer, 
+  noxlydev, 
+  indie game studio, 
+  website developer, 
+  web development, 
+  creative studio, 
+  asset game, 
+  game design, 
+  programming, 
+  front end developer, 
+  backend developer, 
+  UI UX design, 
+  pixel art, 
+  dark fantasy game, 
+  game engine, 
+  build game android, 
+  godot 2d, 
+  godot 4, 
+  developer indonesia, 
+  portofolio game, 
+  devlog, 
+  sistem combo godot, 
+  mobile game developer, 
+  game android offline, 
+  godot tutorial indonesia
+" />
+
+<!-- Indexing -->
+<meta name="robots" content="index, follow" />
+<meta name="author" content="NoxlyDev" />
+
+<!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Sitemap -->
+<!-- Sitemap & RSS -->
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" title={title} href={`${Astro.site}rss.xml`} />
 
-<!-- RSS Feed -->
-<link rel="alternate" type="application/rss+xml" title={title} href={`${Astro.site}rss.xml`}/>
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "{Astro.site}",
+  "name": "{title}",
+  "description": "{description}",
+  "inLanguage": "id"
+}
+</script>
 
 <!-- Global Scripts -->
 <script is:inline src="/js/theme.js"></script>
@@ -55,18 +103,16 @@ const { title, description, image = "/open-graph.jpg" } = Astro.props
 <script is:inline src="/js/animate.js"></script>
 <script defer is:inline src="/js/copy.js"></script>
 
-<!-- Google tag (gtag.js) -->
+<!-- Google Analytics (gtag) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W25CVVKHST"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-W25CVVKHST');
 </script>
 
-<!-- <ViewTransitions  /> -->
-
+<!-- Astro ViewTransitions Fix (optional) -->
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client"
   document.addEventListener("astro:before-swap", (e) =>
