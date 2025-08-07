@@ -1,14 +1,11 @@
 ---
 title: "The Night Oath"
 summary: "Lorem ipsum dolor sit amet"
-date: "Mar 18 2022"
+date: "Mar 18 2025"
 draft: false
 tags:
-- Astro
-- Javascript
-- Typescript
-- Tailwind
-- SolidJs
+- Games
+- game NoxlyDev
 demoUrl: https://www.noxlydev.xyz/
 repoUrl: https://github.com/NoxlyDev
 ---
