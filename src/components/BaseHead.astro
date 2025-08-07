@@ -1,6 +1,4 @@
 ---
-// src/components/Head.astro atau bagian <head> dalam layout
-
 import { ViewTransitions } from "astro:transitions"
 
 interface Props {
@@ -12,7 +10,6 @@ interface Props {
 const { title, description, image = "/open-graph.jpg" } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
-
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -86,15 +83,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <link rel="alternate" type="application/rss+xml" title={title} href={`${Astro.site}rss.xml`} />
 
 <!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": "{Astro.site}",
-  "name": "{title}",
-  "description": "{description}",
-  "inLanguage": "id"
-}
+<script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "${Astro.site}",
+    "name": "${title}",
+    "description": "${description}",
+    "inLanguage": "id"
+  }
 </script>
 
 <!-- Global Scripts -->
@@ -105,21 +102,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 <!-- Google Analytics (gtag) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W25CVVKHST"></script>
-<script>
+<script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { window.dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-W25CVVKHST');
 </script>
 
-<!-- Astro ViewTransitions Fix (optional) -->
-<script>
-  import type { TransitionBeforeSwapEvent } from "astro:transitions/client"
-  document.addEventListener("astro:before-swap", (e) =>
-    [
-      ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll(
-        "link[as=\"font\"]"
-      ),
-    ].forEach((link) => link.remove())
-  )
+<!-- Astro ViewTransitions Fix -->
+<script is:inline>
+  document.addEventListener("astro:before-swap", (e) => {
+    [...e.newDocument.head.querySelectorAll('link[as="font"]')].forEach((link) => link.remove());
+  });
 </script>
