@@ -1,7 +1,7 @@
 ---
 title: "The Night Oath"
 summary: "Lorem ipsum dolor sit amet"
-date: "Mar 18 2025"
+date: "Mar 18 2022"
 draft: false
 tags:
 - Astro
