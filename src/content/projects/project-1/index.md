@@ -6,7 +6,7 @@ draft: false
 tags:
 - Games
 - game NoxlyDev
-demoUrl: https://www.noxlydev.xyz/
+demoUrl: https://tno.noxlydev.xyz/
 repoUrl: https://github.com/NoxlyDev
 ---
 
