@@ -5,6 +5,7 @@ dateStart: "01/01/2025"
 dateEnd: "10/10/2030"
 ---
 
+
 **WUMUX** is a technology company focused on developing **software, games, web solutions, and artificial intelligence (AI)**.  
 We are committed to delivering innovative digital solutions that are not only functional but also provide the best user experience.  
 
