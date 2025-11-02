@@ -1,7 +1,7 @@
 ---
 title: "Project Three"
 summary: "Lorem ipsum dolor sit amet"
-date: "Mar 16 2022"
+date: "Mar-16-32022"
 draft: false
 tags:
 - Vue
