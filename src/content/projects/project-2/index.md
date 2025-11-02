@@ -1,7 +1,7 @@
 ---
 title: "Alya Bot"
 summary: "Alya — All-in-one Discord bot with moderation, fun, and more!"
-date: "Des 11 2024"
+date: "Des-11-2024"
 draft: false
 tags:
 - Bot Discord
