@@ -1,7 +1,7 @@
 ---
 title: "Project Four"
 summary: "Lorem ipsum dolor sit amet"
-date: "Mar 15 2022"
+date: "Mar-15-2022"
 draft: false
 tags:
 - React
